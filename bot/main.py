@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 async def main():
     bot = Bot(token=token, default=DefaultBotProperties(parse_mode="MarkdownV2"))
     dp = Dispatcher()
-    dp.include_routers(c_donut.router, c_start.router, answer.router, media.user_router)
+    dp.include_routers(c_help.router, c_donut.router, c_start.router, answer.router, media.user_router)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=["message", "inline_query", "callback_query"])
